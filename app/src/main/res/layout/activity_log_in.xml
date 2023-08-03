@@ -7,43 +7,78 @@
     android:background="@drawable/img_background"
     tools:context=".LogIn">
 
+    <ImageView
+        android:id="@+id/txt_horizontallogo"
+        android:layout_width="302dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/txt_horizontallogo"/>
 
     <ImageView
-        android:id="@+id/waveLogo"
-        android:layout_width="80dp"
-        android:layout_height="450dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/wave"
+        android:id="@+id/txt_login"
+        android:layout_width="134dp"
+        android:layout_height="38dp"
+        android:layout_below="@id/txt_horizontallogo"
+        android:src="@drawable/txt_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        />
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:shadowColor="@color/semi_transparent_black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="256dp"
+        android:background="@drawable/btn_background"
+        />
+
+    <EditText
+        android:id="@+id/passaword"
+        android:layout_width="312dp"
+        android:layout_height="40dp"
+        android:shadowColor="@color/semi_transparent_black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="326dp"
+        android:background="@drawable/btn_background"
         />
 
     <ImageView
-        android:id="@+id/Txt_inicial"
-        android:layout_width="164dp"
-        android:layout_height="59dp"
-        android:layout_below="@id/waveLogo"
-        android:layout_marginLeft="24dp"
-        android:src="@drawable/txt_initial" />
+        android:id="@+id/txt_forgotpassword"
+        android:layout_width="84dp"
+        android:layout_height="13dp"
+        android:src="@drawable/txt_forgotpassword"
+        android:layout_below="@+id/passaword"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="50dp"
+        android:layout_alignParentRight="true"
+
+
+        />
+
 
     <Button
         android:id="@+id/Login"
-        android:layout_width="250dp"
+        android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_below="@id/Txt_inicial"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="412dp"
         android:layout_marginEnd="18dp"
-
         android:backgroundTint="@color/yellow_700"
         android:text="@string/btn_login" />
 
-    <Button
-        android:id="@+id/SingUp"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_below="@+id/Login"
+    <ImageView
+        android:layout_width="313dp"
+        android:layout_height="15dp"
+        android:src="@drawable/png_divisor"
+        android:layout_marginTop="28dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/btn_sign_up" />
+        android:layout_below="@+id/Login"
+
+        />
+
+
 
 
 </RelativeLayout>
