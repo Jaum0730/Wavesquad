@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="white"
+        android:background="@color/white"
         android:gravity="center"
         android:padding="16dp">
 
@@ -18,7 +18,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Faça seu cadastro" />
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:text="   Faça seu cadastro" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +32,7 @@
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="351dp"
-                android:layout_height="46dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/edittext_border"
                 android:hint=" E-mail ou Usuário"
@@ -42,13 +44,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/white"
             android:padding="8dp">
 
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="351dp"
-                android:layout_height="46dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/edittext_border"
                 android:hint=" Senha"

@@ -3,9 +3,9 @@ package com.teste.chatapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class SignUp : AppCompatActivity() {
+class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setContentView(R.layout.activity_log_in)
     }
 }

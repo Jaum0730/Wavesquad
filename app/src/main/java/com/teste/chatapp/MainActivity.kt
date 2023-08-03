@@ -1,5 +1,6 @@
 package com.teste.chatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener()
         {
-            setContentView(R.layout.activity_log_in)
+            startActivity(Intent(this, LogInActivity::class.java))
         }
 
         btnSignUp.setOnClickListener()
