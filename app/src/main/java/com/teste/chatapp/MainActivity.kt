@@ -15,14 +15,16 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener()
         {
-            setContentView(R.layout.activity_log_in)
+            // Inetent estava implemendata da maneira errada
+            // Tinha que ter importado o pluguin no gradle build.gradle (ChatApp)-> id 'com.android.library' version '8.1.0' apply false
+            val Intent = Intent(this, LogInActivity::class.java)
+            startActivity(Intent)
         }
 
         btnSignUp.setOnClickListener()
         {
-            // Inetent estava implemendata da maneira errada
-            // Tinha que ter importado algumas coisas na depenci
-            var Intent = Intent(this, SignUpActivity::class.java)
+
+            val Intent = Intent(this, SignUpActivity::class.java)
             startActivity(Intent)
         }
     }
