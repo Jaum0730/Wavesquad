@@ -15,12 +15,15 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener()
         {
-            startActivity(Intent(this, LogInActivity::class.java))
+            setContentView(R.layout.activity_log_in)
         }
 
         btnSignUp.setOnClickListener()
         {
-            startActivity(Intent(this, SignUpActivity::class.java))
+            // Inetent estava implemendata da maneira errada
+            // Tinha que ter importado algumas coisas na depenci
+            var Intent = Intent(this, SignUpActivity::class.java)
+            startActivity(Intent)
         }
     }
 }
