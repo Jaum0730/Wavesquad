@@ -6,4 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="white"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="351dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:background="@color/semi_transparent_black"
+            android:hint=" E-mail"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="351dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:background="@color/semi_transparent_black"
+            android:hint=" Senha"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white" />
+
+        <!-- Outros elementos da tela de cadastro podem ser adicionados aqui -->
+
+    </LinearLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
