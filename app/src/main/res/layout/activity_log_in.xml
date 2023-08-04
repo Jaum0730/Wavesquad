@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/background"
     android:layout_width="match_parent"
@@ -67,7 +68,8 @@
         android:layout_marginTop="412dp"
         android:layout_marginEnd="18dp"
         android:backgroundTint="@color/yellow_700"
-        android:text="@string/btn_login" />
+        android:text="@string/btn_login"
+        app:cornerRadius="10dp" />
 
     <ImageView
         android:layout_width="313dp"
@@ -78,8 +80,5 @@
         android:layout_below="@+id/Login"
 
         />
-
-
-
 
 </RelativeLayout>
