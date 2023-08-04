@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener()
         {
-            // Inetent estava implemendata da maneira errada
+            // Intent estava implemendata da maneira errada
             // Tinha que ter importado o pluguin no gradle build.gradle (ChatApp)-> id 'com.android.library' version '8.1.0' apply false
             val Intent = Intent(this, LogInActivity::class.java)
             startActivity(Intent)

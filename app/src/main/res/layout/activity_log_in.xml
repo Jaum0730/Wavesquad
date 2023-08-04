@@ -33,16 +33,25 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="256dp"
         android:background="@drawable/btn_background"
+        android:hint="email"
+        android:textColorHint="@color/semi_transparent_black"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
         />
 
     <EditText
         android:id="@+id/passaword"
         android:layout_width="312dp"
         android:layout_height="40dp"
-        android:shadowColor="@color/semi_transparent_black"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="326dp"
+        android:hint="password"
+        android:textColorHint="@color/semi_transparent_black"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/semi_transparent_black"
         android:background="@drawable/btn_background"
+
         />
 
     <ImageView
@@ -54,9 +63,9 @@
         android:layout_marginTop="9dp"
         android:layout_marginRight="50dp"
         android:layout_alignParentRight="true"
-
-
         />
+
+
 
 
     <Button
