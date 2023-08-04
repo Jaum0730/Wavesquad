@@ -24,11 +24,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
         />
+
     <EditText
         android:id="@+id/user"
         android:layout_width="312dp"
         android:layout_height="40dp"
-        android:shadowColor="@color/semi_transparent_black"
+        android:textColor="@color/semi_transparent_black"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="256dp"
         android:background="@drawable/btn_background"
