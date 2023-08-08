@@ -37,6 +37,17 @@ class LogInActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, senha: String){
+        mAuth.createUserWithEmailAndPassword(email, senha)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+
+
+
+
+                } else {
+
+                }
+            }
 
 
     }
