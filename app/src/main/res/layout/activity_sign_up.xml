@@ -19,9 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textColor="@color/black"
-            android:text="   Faça seu cadastro" />
+            android:gravity="start"
+            android:text="  Faça seu cadastro"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +33,28 @@
             android:padding="8dp">
 
             <EditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/etName"
+                android:layout_width="351dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:textColorHighlight="@color/black"
+                android:background="@drawable/edittext_border"
+                android:hint="Nome"
+                android:textColorHint="@color/semi_transparent_black"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/etEmail"
                 android:layout_width="351dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -39,6 +62,29 @@
                 android:textColorHighlight="@color/black"
                 android:background="@drawable/edittext_border"
                 android:hint="E-mail ou Usuário"
+                android:textColorHint="@color/semi_transparent_black"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="351dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:textColorHighlight="@color/black"
+                android:background="@drawable/edittext_border"
+                android:hint="Endereço"
+                android:textColorHint="@color/semi_transparent_black"
                 android:inputType="textEmailAddress"
                 android:textColor="@android:color/black" />
 
@@ -50,7 +96,7 @@
             android:padding="8dp">
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/etPassword"
                 android:layout_width="351dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -58,10 +104,19 @@
                 android:textColorHighlight="@color/black"
                 android:background="@drawable/edittext_border"
                 android:hint="Senha"
+                android:textColorHint="@color/semi_transparent_black"
                 android:inputType="textPassword"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConfirmSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fazer cadastro"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

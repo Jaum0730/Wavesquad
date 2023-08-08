@@ -55,15 +55,19 @@
 
         />
 
-    <ImageView
-        android:id="@+id/txt_forgotpassword"
+    <TextView
+        android:id="@+id/txtForgotPassword"
         android:layout_width="84dp"
         android:layout_height="13dp"
-        android:src="@drawable/txt_forgotpassword"
         android:layout_below="@+id/txtLoginPassword"
         android:layout_marginTop="9dp"
         android:layout_marginRight="50dp"
         android:layout_alignParentRight="true"
+        android:text="Esqueci minha senha"
+        android:textSize="8dp"
+        android:linksClickable="true"
+        android:textColorLink="@color/blue_200"
+        android:textColor="@color/white"
         />
 
 
