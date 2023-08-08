@@ -39,6 +39,7 @@
         android:inputType="textEmailAddress"
         android:padding="10dp" />
 
+
     <EditText
         android:id="@+id/txtLoginPassword"
         android:layout_width="312dp"
