@@ -27,30 +27,29 @@
         />
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/txtLoginEmail"
         android:layout_width="312dp"
         android:layout_height="40dp"
-        android:textColor="@color/semi_transparent_black"
+        android:textColor="@color/black"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="256dp"
         android:background="@drawable/btn_background"
-        android:hint="email"
+        android:hint="Email"
         android:textColorHint="@color/semi_transparent_black"
         android:inputType="textEmailAddress"
-        android:padding="10dp"
-        />
+        android:padding="10dp" />
 
     <EditText
-        android:id="@+id/passaword"
+        android:id="@+id/txtLoginPassword"
         android:layout_width="312dp"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="326dp"
-        android:hint="password"
+        android:hint="Senha"
         android:textColorHint="@color/semi_transparent_black"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:textColor="@color/semi_transparent_black"
+        android:textColor="@color/black"
         android:background="@drawable/btn_background"
 
         />
@@ -60,7 +59,7 @@
         android:layout_width="84dp"
         android:layout_height="13dp"
         android:src="@drawable/txt_forgotpassword"
-        android:layout_below="@+id/passaword"
+        android:layout_below="@+id/txtLoginPassword"
         android:layout_marginTop="9dp"
         android:layout_marginRight="50dp"
         android:layout_alignParentRight="true"

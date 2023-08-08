@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="20dp"
+            android:textColor="@color/black"
             android:text="   Faça seu cadastro" />
 
         <LinearLayout
@@ -34,8 +35,10 @@
                 android:layout_width="351dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:padding="10dp"
+                android:textColorHighlight="@color/black"
                 android:background="@drawable/edittext_border"
-                android:hint=" E-mail ou Usuário"
+                android:hint="E-mail ou Usuário"
                 android:inputType="textEmailAddress"
                 android:textColor="@android:color/black" />
 
@@ -51,10 +54,12 @@
                 android:layout_width="351dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:padding="10dp"
+                android:textColorHighlight="@color/black"
                 android:background="@drawable/edittext_border"
-                android:hint=" Senha"
+                android:hint="Senha"
                 android:inputType="textPassword"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 
