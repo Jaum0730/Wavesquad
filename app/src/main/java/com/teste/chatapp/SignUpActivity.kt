@@ -1,5 +1,6 @@
  package com.teste.chatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,12 +12,20 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class SignUpActivity : AppCompatActivity() {
 
+
+class SignUpActivity : AppCompatActivity() {
+    //variavel de autenticacao
+    private lateinit var dbAuth: FirebaseAuth
+    //variavel  de banco de dados
     private val db = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
+
+
+        dbAuth = FirebaseAuth.getInstance()
 
         var etName: EditText = findViewById(R.id.etName)
         var etAddress: EditText = findViewById(R.id.etAddress)
@@ -25,7 +34,7 @@ class SignUpActivity : AppCompatActivity() {
         var btnSignUp: Button = findViewById(R.id.btnConfirmSignUp)
 
         btnSignUp.setOnClickListener{
-
+            // Adicionando ao banco de dados
             val progressBar: ProgressBar = findViewById(R.id.prgBarSignUp)
             progressBar.visibility = View.VISIBLE
             btnSignUp.visibility = View.GONE
@@ -40,6 +49,7 @@ class SignUpActivity : AppCompatActivity() {
 
             if (strName.isBlank() || strAddress.isBlank() || strEmail.isBlank() || strPassword.isBlank()) {
                 Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+
                 etName.text.clear()
                 etAddress.text.clear()
                 etEmail.text.clear()
@@ -52,21 +62,36 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val userMap = hashMapOf(
-                "name" to strName,
-                "address" to strAddress,
-                "email" to strEmail,
-                "password" to strPassword
-            )
+            //Adicionando a autenticacao
+            //FIXME:ME CONSERTE
+            //====================================
+                val  email = etEmail.text.toString()
+                val senha = etPassword.text.toString()
+                SingUpcreate(email,senha)
+            //====================================
+
+
+                val userMap = hashMapOf(
+                    "name" to strName,
+                    "address" to strAddress,
+                    "email" to strEmail,
+                    "password" to strPassword
+                )
+
 
             val newUserDocument = db.collection("users").document()
             newUserDocument.set(userMap)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Successfully Added! Check the DataBase", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "Successfully Added! Check the DataBase",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     etName.text.clear()
                     etAddress.text.clear()
                     etEmail.text.clear()
                     etPassword.text.clear()
+
 
                     progressBar.visibility = View.GONE
                     btnSignUp.visibility = View.VISIBLE
@@ -81,4 +106,30 @@ class SignUpActivity : AppCompatActivity() {
                 }
         }
     }
+
+    fun SingUpcreate(email:String, senha:String){
+        dbAuth.createUserWithEmailAndPassword(email, senha)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+
+                } else {
+
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+
+                }
+            }
+
+
+
+
+    }
+
+
 }
