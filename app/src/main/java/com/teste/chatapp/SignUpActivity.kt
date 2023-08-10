@@ -31,7 +31,7 @@ class SignUpActivity : AppCompatActivity() {
             btnSignUp.visibility = View.GONE
             btnSignUp.isEnabled = false
 
-            Thread.sleep(500)
+            Thread.sleep(200)
 
             val strName = etName.text.toString().trim()
             val strAddress = etAddress.text.toString().trim()
@@ -40,7 +40,15 @@ class SignUpActivity : AppCompatActivity() {
 
             if (strName.isBlank() || strAddress.isBlank() || strEmail.isBlank() || strPassword.isBlank()) {
                 Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
-                
+                etName.text.clear()
+                etAddress.text.clear()
+                etEmail.text.clear()
+                etPassword.text.clear()
+
+                progressBar.visibility = View.GONE
+                btnSignUp.visibility = View.VISIBLE
+                btnSignUp.isEnabled = true
+
                 return@setOnClickListener
             }
 
@@ -71,8 +79,6 @@ class SignUpActivity : AppCompatActivity() {
                     btnSignUp.visibility = View.VISIBLE
                     btnSignUp.isEnabled = true
                 }
-
-
         }
     }
 }
