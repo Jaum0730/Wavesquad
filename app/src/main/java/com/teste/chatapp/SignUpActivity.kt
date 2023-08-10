@@ -31,10 +31,18 @@ class SignUpActivity : AppCompatActivity() {
             btnSignUp.visibility = View.GONE
             btnSignUp.isEnabled = false
 
+            Thread.sleep(500)
+
             val strName = etName.text.toString().trim()
             val strAddress = etAddress.text.toString().trim()
             val strEmail = etEmail.text.toString().trim()
             val strPassword = etPassword.text.toString().trim()
+
+            if (strName.isBlank() || strAddress.isBlank() || strEmail.isBlank() || strPassword.isBlank()) {
+                Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+                
+                return@setOnClickListener
+            }
 
             val userMap = hashMapOf(
                 "name" to strName,
