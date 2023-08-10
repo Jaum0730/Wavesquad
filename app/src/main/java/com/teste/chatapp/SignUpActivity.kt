@@ -1,8 +1,10 @@
  package com.teste.chatapp
 
 import android.content.Intent
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -26,6 +28,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
         dbAuth = FirebaseAuth.getInstance()
+        val user = dbAuth.currentUser
 
         var etName: EditText = findViewById(R.id.etName)
         var etAddress: EditText = findViewById(R.id.etAddress)
@@ -63,11 +66,10 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             //Adicionando a autenticacao
-            //FIXME:ME CONSERTE
+            //funcionando
             //====================================
-                val  email = etEmail.text.toString()
-                val senha = etPassword.text.toString()
-                SingUpcreate(email,senha)
+                SingUpcreate(strEmail,strPassword)
+
             //====================================
 
 
@@ -107,10 +109,16 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    fun SingUpcreate(email:String, senha:String){
+   fun SingUpcreate(email:String, senha:String){
+
+       if(senha.length < 7)
+           Toast.makeText(this, "senha precisa ter no minimo 8 caracteres", Toast.LENGTH_SHORT).show()
+
+
         dbAuth.createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+
 
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
@@ -129,7 +137,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-    }
+   }
 
 
 }
