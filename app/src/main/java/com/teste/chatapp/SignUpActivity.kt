@@ -26,7 +26,6 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-
         dbAuth = FirebaseAuth.getInstance()
 
         var etName: EditText = findViewById(R.id.etName)
@@ -71,8 +70,7 @@ class SignUpActivity : AppCompatActivity() {
                 "password" to strPassword
             )
 
-
-            val newUserDocument = db.collection("users").document()
+            val newUserDocument = db.collection("users").document(dbAuth.currentUser!!.uid)
             newUserDocument.set(userMap)
                 .addOnSuccessListener {
                     Toast.makeText(
@@ -111,7 +109,6 @@ class SignUpActivity : AppCompatActivity() {
         dbAuth.createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
 
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)

@@ -19,13 +19,9 @@ class LogInActivity : AppCompatActivity() {
 
         dbAuth = FirebaseAuth.getInstance()
 
-
         var txtLoginEmail: EditText = findViewById<EditText>(R.id.txtLoginEmail)
         var txtLoginPassword: EditText = findViewById<EditText>(R.id.txtLoginPassword)
         var btn_login: Button = findViewById(R.id.Login)
-
-
-
 
         btn_login.setOnClickListener(){
             val email = txtLoginEmail.text.toString()
@@ -33,12 +29,7 @@ class LogInActivity : AppCompatActivity() {
 
             login(email, senha);
 
-
         }
-
-
-
-
     }
 
     private fun login(email: String, senha: String){
@@ -47,23 +38,14 @@ class LogInActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
 
-
-
                     val intent = Intent(this@LogInActivity, MainActivity::class.java)
                     startActivity(intent)
-
-
 
                 } else {
                     Toast.makeText(this, "User does not exist", Toast.LENGTH_SHORT).show()
 
                 }
             }
-
-
     }
-
-
-
 }
 
