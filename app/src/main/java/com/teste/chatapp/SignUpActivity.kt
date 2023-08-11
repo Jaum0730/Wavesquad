@@ -28,7 +28,6 @@ class SignUpActivity : AppCompatActivity() {
 
 
         dbAuth = FirebaseAuth.getInstance()
-        val user = dbAuth.currentUser
 
         var etName: EditText = findViewById(R.id.etName)
         var etAddress: EditText = findViewById(R.id.etAddress)
@@ -65,20 +64,12 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            //Adicionando a autenticacao
-            //funcionando
-            //====================================
-                SingUpcreate(strEmail,strPassword)
-
-            //====================================
-
-
-                val userMap = hashMapOf(
-                    "name" to strName,
-                    "address" to strAddress,
-                    "email" to strEmail,
-                    "password" to strPassword
-                )
+            val userMap = hashMapOf(
+                "name" to strName,
+                "address" to strAddress,
+                "email" to strEmail,
+                "password" to strPassword
+            )
 
 
             val newUserDocument = db.collection("users").document()
@@ -98,6 +89,8 @@ class SignUpActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                     btnSignUp.visibility = View.VISIBLE
                     btnSignUp.isEnabled = true
+
+                    SingUpcreate(strEmail,strPassword)
                 }
                 .addOnFailureListener {
                     Toast.makeText(this, "Failure to save in DataBase", Toast.LENGTH_SHORT).show()
