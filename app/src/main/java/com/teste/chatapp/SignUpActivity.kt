@@ -99,6 +99,7 @@ class SignUpActivity : AppCompatActivity() {
                     btnSignUp.visibility = View.VISIBLE
                     btnSignUp.isEnabled = true
                 }
+
         }
     }
 
