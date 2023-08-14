@@ -1,15 +1,14 @@
  package com.teste.chatapp
 
 import android.content.Intent
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -19,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 class SignUpActivity : AppCompatActivity() {
     //variavel de autenticacao
     private lateinit var dbAuth: FirebaseAuth
+
     //variavel  de banco de dados
     private val db = Firebase.firestore
 
@@ -32,9 +32,10 @@ class SignUpActivity : AppCompatActivity() {
         var etAddress: EditText = findViewById(R.id.etAddress)
         var etEmail: EditText = findViewById(R.id.etEmail)
         var etPassword: EditText = findViewById(R.id.etPassword)
+        var etPhoneNumber: EditText = findViewById(R.id.etPassword)
         var btnSignUp: Button = findViewById(R.id.btnConfirmSignUp)
 
-        btnSignUp.setOnClickListener{
+        btnSignUp.setOnClickListener {
             // Adicionando ao banco de dados
             val progressBar: ProgressBar = findViewById(R.id.prgBarSignUp)
             progressBar.visibility = View.VISIBLE
@@ -43,6 +44,7 @@ class SignUpActivity : AppCompatActivity() {
 
             Thread.sleep(200)
 
+            val strPhoneNumber = etPhoneNumber.text.toString().trim()
             val strName = etName.text.toString().trim()
             val strAddress = etAddress.text.toString().trim()
             val strEmail = etEmail.text.toString().trim()
@@ -64,10 +66,11 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             val userMap = hashMapOf(
+                "email" to strEmail,
+                "password" to strPassword,
                 "name" to strName,
                 "address" to strAddress,
-                "email" to strEmail,
-                "password" to strPassword
+                "phone number" to strPhoneNumber
             )
 
             val newUserDocument = db.collection("users").document(dbAuth.currentUser!!.uid)
@@ -75,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     Toast.makeText(
                         this,
-                        "Successfully Added! Check the DataBase",
+                        "Sucesso! Você será redirecionado!",
                         Toast.LENGTH_SHORT
                     ).show()
                     etName.text.clear()
@@ -83,15 +86,14 @@ class SignUpActivity : AppCompatActivity() {
                     etEmail.text.clear()
                     etPassword.text.clear()
 
-
                     progressBar.visibility = View.GONE
                     btnSignUp.visibility = View.VISIBLE
                     btnSignUp.isEnabled = true
 
-                    SingUpcreate(strEmail,strPassword)
+                    SingUpcreate(strEmail, strPassword)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Failure to save in DataBase", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Erro ao salvar no Firestore", Toast.LENGTH_SHORT).show()
 
                     progressBar.visibility = View.GONE
                     btnSignUp.visibility = View.VISIBLE
@@ -100,34 +102,27 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-   fun SingUpcreate(email:String, senha:String){
+    fun SingUpcreate(email: String, senha: String) {
 
-       if(senha.length < 7)
-           Toast.makeText(this, "senha precisa ter no minimo 8 caracteres", Toast.LENGTH_SHORT).show()
+        if (senha.length < 7) {
+            Toast.makeText(this, "senha precisa ter no minimo 8 caracteres", Toast.LENGTH_LONG)
+                .show()
+        }else {
+            dbAuth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
 
+                        Toast.makeText(this, "Conta criada com sucesso", Toast.LENGTH_SHORT).show()
 
-        dbAuth.createUserWithEmailAndPassword(email, senha)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
+                    } else {
 
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-
-                } else {
-
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication failed.",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-
+                        Toast.makeText(
+                            baseContext,
+                            "Não foi possível criar a conta. Por favor, tente novamente",
+                            Toast.LENGTH_LONG,
+                        ).show()
+                    }
                 }
-            }
-
-
-
-
-   }
-
-
+        }
+    }
 }
