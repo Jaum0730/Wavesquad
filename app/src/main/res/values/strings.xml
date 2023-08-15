@@ -2,4 +2,7 @@
     <string name="app_name">ChatApp</string>
     <string name="btn_login">Login</string>
     <string name="btn_sign_up">Sign Up</string>
+    <string name="continuar">Continuar</string>
+    <string name="title_activity_login_screen">LoginScreen</string>
+    <string name="title_activity_login_layout">LoginLayout</string>
 </resources>

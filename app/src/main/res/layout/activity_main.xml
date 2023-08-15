@@ -10,44 +10,39 @@
 
 
     <ImageView
-        android:id="@+id/waveLogo"
-        android:layout_width="80dp"
-        android:layout_height="450dp"
+        android:id="@+id/lgWave"
+        android:layout_width="70dp"
+        android:layout_height="400dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="72dp"
+        android:layout_marginBottom="21dp"
         android:src="@drawable/wave" />
 
-    <ImageView
-        android:id="@+id/Txt_inicial"
-        android:layout_width="164dp"
-        android:layout_height="59dp"
-        android:layout_below="@id/waveLogo"
+    <TextView
+        android:id="@+id/txtInicial"
+        android:layout_width="339dp"
+        android:layout_height="101dp"
+        android:layout_below="@id/lgWave"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="24dp"
-        android:src="@drawable/txt_initial" />
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="51dp"
+        android:fontFamily="@font/outfit_black"
+        android:text="Bem vindo a WaveSquad :)"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
 
     <Button
-        app:cornerRadius="10dp"
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnContinuar"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_below="@id/Txt_inicial"
+        android:layout_below="@id/txtInicial"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="18dp"
         android:backgroundTint="@color/yellow_700"
-        android:text="@string/btn_login"
-        android:onClick="onLoginButtonClick" />
-
-    <Button
-        app:cornerRadius="10dp"
-        android:id="@+id/btnSingUp"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_below="@+id/btnLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="@string/btn_sign_up"
-        android:onClick="onSignUpButtonClick" />
-
+        android:onClick="onContinueButtonClick"
+        android:text="@string/continuar"
+        app:cornerRadius="10dp" />
 
 </RelativeLayout>
