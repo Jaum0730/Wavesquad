@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.teste.chatapp.R
 
 @Composable
-fun LogInScreen(onContinueClick: () -> Unit) {
+fun MenuScreen(onContinueClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -84,6 +84,6 @@ fun LogInScreen(onContinueClick: () -> Unit) {
 
 @Composable
 @Preview
-fun PreviewLogInScreen() {
-    LogInScreen(onContinueClick = {})
+fun PreviewMenuScreen() {
+    MenuScreen(onContinueClick = {})
 }
