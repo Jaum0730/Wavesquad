@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.teste.chatapp.R
+import org.w3c.dom.Text
 
 @Composable
 fun LogInScreen(onContinueClick: () -> Unit) {
