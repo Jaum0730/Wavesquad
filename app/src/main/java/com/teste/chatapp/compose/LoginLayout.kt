@@ -46,7 +46,7 @@ import com.teste.chatapp.compose.ui.theme.White100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginLayoutScreen() {
+fun LoginLayoutScreen(onLoginClick:() -> Unit) {
     var email by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
@@ -136,7 +136,9 @@ fun LoginLayoutScreen() {
                     .padding(8.dp)
             ){
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = {
+                              onLoginClick()
+                    },
                     colors = ButtonDefaults.buttonColors(
                         com.teste.chatapp.compose.ui.theme.Orange80
                     ),
@@ -208,7 +210,7 @@ fun LoginLayoutScreen() {
 @Composable
 fun LoginLayoutScreenPreview(){
     ChatAppTheme {
-        LoginLayoutScreen()
+        LoginLayoutScreen(onLoginClick = {})
 
     }
 }

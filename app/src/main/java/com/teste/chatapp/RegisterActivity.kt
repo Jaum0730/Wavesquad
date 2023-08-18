@@ -8,23 +8,26 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.activity.compose.setContent
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.teste.chatapp.compose.RegisterLayoutScreenPreview
 
 
+ class RegisterActivity : AppCompatActivity() {
 
-class SignUpActivity : AppCompatActivity() {
     //variavel de autenticacao
     private lateinit var dbAuth: FirebaseAuth
-
     //variavel  de banco de dados
     private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        setContent{
+            RegisterLayoutScreenPreview()
+        }
 
         dbAuth = FirebaseAuth.getInstance()
 

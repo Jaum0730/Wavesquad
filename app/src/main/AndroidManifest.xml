@@ -18,27 +18,12 @@
             android:label="@string/title_activity_menu_layout"
             android:theme="@style/Theme.ChatApp" />
         <activity
-            android:name=".compose.ui.MenuLayout"
-            android:exported="false"
-            android:label="@string/title_activity_menu_layout"
-            android:theme="@style/Theme.ChatApp" />
-        <activity
-            android:name=".compose.TestLayout"
-            android:exported="false"
-            android:label="@string/title_activity_test_layout"
-            android:theme="@style/Theme.ChatApp" />
-        <activity
             android:name=".compose.LoginLayout"
             android:exported="false"
             android:label="@string/title_activity_login_layout"
             android:theme="@style/Theme.ChatApp" />
         <activity
-            android:name=".LoginScreen"
-            android:exported="false"
-            android:label="@string/title_activity_login_screen"
-            android:theme="@style/Theme.ChatApp" />
-        <activity
-            android:name=".SignUpActivity"
+            android:name=".RegisterActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

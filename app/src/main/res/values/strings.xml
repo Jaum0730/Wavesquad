@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChatApp</string>
+    <string name="app_name">WaveSquad</string>
     <string name="btn_login">Login</string>
     <string name="btn_sign_up">Sign Up</string>
     <string name="continuar">Continuar</string>

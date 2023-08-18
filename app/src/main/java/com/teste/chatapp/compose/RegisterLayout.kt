@@ -44,7 +44,7 @@ import com.teste.chatapp.compose.ui.theme.White100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegisterLayoutScreen(){
+fun RegisterLayoutScreen(onSignUpClick:() -> Unit){
     var user by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
@@ -164,7 +164,7 @@ fun RegisterLayoutScreen(){
                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
                    fontFamily = fontFamily,
                    fontSize = 12.sp,
-                   fontWeight = FontWeight.Medium,
+                   fontWeight = FontWeight.Normal,
                    modifier = Modifier
                        .clickable {  }
                )
@@ -175,7 +175,7 @@ fun RegisterLayoutScreen(){
                    .padding(8.dp)
            ){
                Button(
-                   onClick = { /*TODO*/ },
+                   onClick = { onSignUpClick() },
                    colors = ButtonDefaults.buttonColors(
                        Orange80
                    ),
@@ -184,7 +184,7 @@ fun RegisterLayoutScreen(){
                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
                ) {
                    Text(
-                       text = "Login",
+                       text = "Cadastrar",
                        color = Color.White,
                        fontFamily = fontFamily,
                        fontSize = 12.sp,
@@ -251,6 +251,6 @@ fun RegisterLayoutScreen(){
 @Composable
 fun RegisterLayoutScreenPreview(){
     ChatAppTheme {
-        RegisterLayoutScreen()
+        RegisterLayoutScreen(onSignUpClick = {})
     }
 }

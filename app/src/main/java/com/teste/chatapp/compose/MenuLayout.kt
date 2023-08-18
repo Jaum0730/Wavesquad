@@ -1,5 +1,7 @@
 package com.teste.chatapp.compose
 
+import android.content.Intent
+import android.widget.Button
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
@@ -25,11 +28,13 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
+import com.teste.chatapp.LogInActivity
 import com.teste.chatapp.R
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 
 @Composable
-fun InitialLayoutScreen() {
+fun InitialLayoutScreen(onContinueClick: () -> Unit) {
     val fontFamily = FontFamily(
         Font(R.font.outfit_black, FontWeight.Black),
         Font(R.font.outfit_bold, FontWeight.Bold),
@@ -92,7 +97,9 @@ fun InitialLayoutScreen() {
 
             // botão Login
             Button(
-                onClick = { /*TODO*/ },
+                onClick = {
+                          onContinueClick()
+                    },
                 colors = ButtonDefaults.buttonColors(
                     com.teste.chatapp.compose.ui.theme.Orange80
                 ),
@@ -142,6 +149,6 @@ fun InitialLayoutScreen() {
 @Composable
 fun InitialLayoutScreenPreview() {
     ChatAppTheme {
-        InitialLayoutScreen()
+        InitialLayoutScreen(onContinueClick = {})
     }
 }
