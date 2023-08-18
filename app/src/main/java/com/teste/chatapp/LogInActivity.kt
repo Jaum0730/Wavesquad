@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.compose.setContent
 import com.google.firebase.auth.FirebaseAuth
+import com.teste.chatapp.compose.LoginLayoutScreenPreview
 
 
 private lateinit var dbAuth:FirebaseAuth
@@ -14,8 +16,10 @@ private lateinit var dbAuth:FirebaseAuth
 class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log_in)
-
+        setContent{
+            LoginLayoutScreenPreview()
+        }
+        //olhar utilidade
         dbAuth = FirebaseAuth.getInstance()
 
         var txtLoginEmail: EditText = findViewById<EditText>(R.id.txtLoginEmail)

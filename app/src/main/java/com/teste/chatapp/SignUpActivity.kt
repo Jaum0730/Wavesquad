@@ -8,14 +8,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.activity.compose.setContent
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.teste.chatapp.compose.RegisterLayoutScreenPreview
 
 
-
-class SignUpActivity : AppCompatActivity() {
+ class SignUpActivity : AppCompatActivity() {
     //variavel de autenticacao
     private lateinit var dbAuth: FirebaseAuth
 
@@ -24,8 +25,10 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-
+        setContent{
+            RegisterLayoutScreenPreview()
+        }
+        //olhar utilidade
         dbAuth = FirebaseAuth.getInstance()
 
         var etName: EditText = findViewById(R.id.etName)

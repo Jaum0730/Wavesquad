@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -114,6 +115,7 @@ fun RegisterLayoutScreen(){
                onValueChange = { email = it },
                label = { Text("Usuário") },
                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
+               shape = RoundedCornerShape(7.dp),
                modifier = Modifier
                    .padding(5.dp)
            )
