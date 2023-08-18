@@ -1,6 +1,7 @@
 package com.teste.chatapp.compose
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,7 +45,7 @@ import com.teste.chatapp.compose.ui.theme.LightBlue80
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginLayoutScreen(){
+fun LoginLayoutScreen() {
     var text by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
@@ -61,7 +62,7 @@ fun LoginLayoutScreen(){
 
     )
 
-    Box (
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(com.teste.chatapp.compose.ui.theme.LightDark80)
@@ -72,7 +73,6 @@ fun LoginLayoutScreen(){
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ){
-
             // box para os diferentes textos ficarem alinhados
             Box(
                 contentAlignment = Alignment.BottomStart,
@@ -82,11 +82,106 @@ fun LoginLayoutScreen(){
                     text = buildAnnotatedString {
                         withStyle(
                             style = SpanStyle(
-                                color = LightBlue80,
+                                color = com.teste.chatapp.compose.ui.theme.LightBlue80,
                             )
                         ) {
                             append("W")
-l l
+                        }
+                        append("AVE")
+                    },
+                    color = Color.White,
+                    fontSize = 60.sp,
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Bold
+                )
+
+                // 2° texto da box
+                Text(
+                    text = "x",
+                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                    fontSize = 35.sp,
+                    fontFamily = fontFamily,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(start = 175.dp, bottom = 10.dp)
+                        .align(Alignment.BottomEnd)
+                        .graphicsLayer(rotationZ = -23f)
+                )
+
+            }
+
+            OutlinedTextField(
+                value = text,
+                onValueChange = { text = it },
+                label = { Text("Email") },
+                modifier = Modifier
+                .padding(10.dp)
+            )
+
+            OutlinedTextField(
+                value = password,
+                onValueChange = { password = it },
+                label = { Text("Senha") },
+                visualTransformation = PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                modifier = Modifier
+                    .padding(10.dp)
+            )
+
+            Box(
+                modifier = Modifier
+                    .padding(8.dp)
+            ){
+                Button(
+                    onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(
+                        com.teste.chatapp.compose.ui.theme.Orange80
+                    ),
+                    modifier = Modifier
+                        .size(350.dp, 30.dp)
+                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
+                ) {
+                    Text(
+                        text = "Login",
+                        color = Color.White,
+                        fontFamily = fontFamily,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .padding(8.dp)
+            ){
+                Button(
+                    onClick = { /*TODO*/ },
+                    colors = ButtonDefaults.buttonColors(
+                        Color.White
+                    ),
+                    modifier = Modifier
+                        .size(350.dp, 30.dp)
+                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
+                ) {
+                    Text(
+                        text = "Continuar com Google",
+                        color = Color.Black,
+                        fontFamily = fontFamily,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .padding(0.dp, 20.dp, 0.dp, 0.dp)
+            ){
+                Text(
+                    text = buildAnnotatedString {
+                        withStyle(
+                            style = SpanStyle(
                                 color = Color.White
                             )
                         ) {
@@ -97,14 +192,15 @@ l l
                     color = com.teste.chatapp.compose.ui.theme.LightBlue80,
                     fontFamily = fontFamily,
                     fontSize = 12.sp,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier
+                        .clickable {  }
                 )
             }
+
         }
     }
 }
-
-
 @Preview
 @Composable
 fun LoginLayoutScreenPreview(){

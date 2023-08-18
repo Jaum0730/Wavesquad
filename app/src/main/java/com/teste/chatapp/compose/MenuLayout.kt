@@ -1,6 +1,7 @@
 package com.teste.chatapp.compose
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -128,7 +129,9 @@ fun InitialLayoutScreen() {
                     color = com.teste.chatapp.compose.ui.theme.LightBlue80,
                     fontFamily = fontFamily,
                     fontSize = 12.sp,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier
+                        .clickable {  }
                 )
             }
         }
