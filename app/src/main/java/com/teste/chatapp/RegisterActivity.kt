@@ -16,8 +16,12 @@ import com.google.firebase.ktx.Firebase
 import com.teste.chatapp.compose.RegisterLayoutScreenPreview
 
 
+<<<<<<< HEAD:app/src/main/java/com/teste/chatapp/RegisterActivity.kt
  class RegisterActivity : AppCompatActivity() {
 
+=======
+ class SignUpActivity : AppCompatActivity() {
+>>>>>>> 7a3e9b8cfecdf94b0baf4f8b1354e9bbc30dfae1:app/src/main/java/com/teste/chatapp/SignUpActivity.kt
     //variavel de autenticacao
     private lateinit var dbAuth: FirebaseAuth
     //variavel  de banco de dados
@@ -28,7 +32,11 @@ import com.teste.chatapp.compose.RegisterLayoutScreenPreview
         setContent{
             RegisterLayoutScreenPreview()
         }
+<<<<<<< HEAD:app/src/main/java/com/teste/chatapp/RegisterActivity.kt
 
+=======
+        //olhar utilidade
+>>>>>>> 7a3e9b8cfecdf94b0baf4f8b1354e9bbc30dfae1:app/src/main/java/com/teste/chatapp/SignUpActivity.kt
         dbAuth = FirebaseAuth.getInstance()
 
         var etName: EditText = findViewById(R.id.etName)
