@@ -14,6 +14,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -39,6 +40,7 @@ import com.teste.chatapp.R
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 import com.teste.chatapp.compose.ui.theme.LightBlue80
 import com.teste.chatapp.compose.ui.theme.Orange80
+import com.teste.chatapp.compose.ui.theme.White100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -111,6 +113,7 @@ fun RegisterLayoutScreen(){
                value = user,
                onValueChange = { email = it },
                label = { Text("Usuário") },
+               colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                modifier = Modifier
                    .padding(5.dp)
            )
@@ -119,6 +122,7 @@ fun RegisterLayoutScreen(){
                value = email,
                onValueChange = { email = it },
                label = { Text("Email") },
+               colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                modifier = Modifier
                    .padding(5.dp)
            )
@@ -128,6 +132,7 @@ fun RegisterLayoutScreen(){
                onValueChange = { password = it },
                label = { Text("Senha") },
                visualTransformation = PasswordVisualTransformation(),
+               colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                modifier = Modifier
                    .padding(5.dp)
@@ -200,7 +205,9 @@ fun RegisterLayoutScreen(){
                    modifier = Modifier
                        .size(350.dp, 30.dp)
                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
-               ) {
+               )
+
+               {
                    Text(
                        text = "Continuar com Google",
                        color = Color.Black,

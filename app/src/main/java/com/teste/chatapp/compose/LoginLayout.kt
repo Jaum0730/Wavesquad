@@ -42,6 +42,7 @@ import com.google.android.material.color.utilities.MaterialDynamicColors.backgro
 import com.teste.chatapp.R
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 import com.teste.chatapp.compose.ui.theme.LightBlue80
+import com.teste.chatapp.compose.ui.theme.White100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -113,6 +114,7 @@ fun LoginLayoutScreen() {
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
+                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                 label = { Text("Email") },
                 modifier = Modifier
                 .padding(5.dp)
@@ -123,6 +125,7 @@ fun LoginLayoutScreen() {
                 onValueChange = { password = it },
                 label = { Text("Senha") },
                 visualTransformation = PasswordVisualTransformation(),
+                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier
                     .padding(5.dp)
