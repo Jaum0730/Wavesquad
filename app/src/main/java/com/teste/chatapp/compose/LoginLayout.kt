@@ -46,7 +46,7 @@ import com.teste.chatapp.compose.ui.theme.LightBlue80
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginLayoutScreen() {
-    var text by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
     val fontFamily = FontFamily(
@@ -111,11 +111,11 @@ fun LoginLayoutScreen() {
             }
 
             OutlinedTextField(
-                value = text,
-                onValueChange = { text = it },
+                value = email,
+                onValueChange = { email = it },
                 label = { Text("Email") },
                 modifier = Modifier
-                .padding(10.dp)
+                .padding(5.dp)
             )
 
             OutlinedTextField(
@@ -125,7 +125,7 @@ fun LoginLayoutScreen() {
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(5.dp)
             )
 
             Box(
