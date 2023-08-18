@@ -10,7 +10,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId 'com.teste.wavesquad'
+        applicationId 'com.teste.chatapp'
         minSdk 23
         targetSdk 34
         versionCode 1
