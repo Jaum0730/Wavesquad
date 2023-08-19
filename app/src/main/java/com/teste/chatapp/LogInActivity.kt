@@ -16,10 +16,11 @@ private lateinit var dbAuth:FirebaseAuth
 class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //HEAD
-        setContent {
+
+        setContent{
             LoginLayoutScreenPreview()
         }
+        //olhar utilidade
 
         dbAuth = FirebaseAuth.getInstance()
 
