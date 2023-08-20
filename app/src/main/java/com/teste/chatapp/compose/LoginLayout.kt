@@ -160,23 +160,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                 modifier = Modifier
                     .padding(8.dp)
             ){
-                Button(
-                    onClick = { /*TODO*/ },
-                    colors = ButtonDefaults.buttonColors(
-                        Color.White
-                    ),
-                    modifier = Modifier
-                        .size(350.dp, 30.dp)
-                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
-                ) {
-                    Text(
-                        text = "Continuar com Google",
-                        color = Color.Black,
-                        fontFamily = fontFamily,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                Googlebutton()
             }
 
             Box(
