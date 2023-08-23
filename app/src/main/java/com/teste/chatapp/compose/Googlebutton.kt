@@ -1,10 +1,15 @@
 package com.teste.chatapp.compose
 
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -35,18 +40,31 @@ fun Googlebutton(){
 
     Surface(
         onClick = {clicked = !clicked},
-        shape = RoundedCornerShape(4.dp),
+        shape = RoundedCornerShape(7.dp),
         border = BorderStroke(width = 1.dp, color = Color.White ),
         color = MaterialTheme.colorScheme.surface
     ){
         Row (
             modifier = Modifier
+                .fillMaxWidth()
                 .padding(
                     start = 14.dp,
                     end = 16.dp,
                     top = 10.dp,
                     bottom = 10.dp
-            ),
+            )
+                //trabalha as animações
+                .animateContentSize(
+
+                    animationSpec = tween(
+                        durationMillis = 300,
+                        easing = LinearOutSlowInEasing
+
+
+                    )
+
+                )
+            ,
 
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,

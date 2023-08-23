@@ -1,13 +1,18 @@
 package com.teste.chatapp.compose
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -25,8 +30,12 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
@@ -42,12 +51,13 @@ import com.google.android.material.color.utilities.MaterialDynamicColors.backgro
 import com.teste.chatapp.R
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 import com.teste.chatapp.compose.ui.theme.LightBlue80
+import com.teste.chatapp.compose.ui.theme.Orange80
 import com.teste.chatapp.compose.ui.theme.White100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginLayoutScreen(onLoginClick:() -> Unit) {
-    var email by remember { mutableStateOf("") }
+    var usuario by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
     val fontFamily = FontFamily(
@@ -78,6 +88,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
             Box(
                 contentAlignment = Alignment.BottomStart,
             ) {
+
                 // 1° texto da box
                 Text(
                     text = buildAnnotatedString {
@@ -111,29 +122,45 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
 
             }
 
-            OutlinedTextField(
-                value = email,
-                onValueChange = { email = it },
-                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
-                label = { Text("Email") },
-                modifier = Modifier
-                .padding(5.dp)
-            )
 
-            OutlinedTextField(
+            TextField(
+                value = usuario,
+                onValueChange = { usuario = it},
+                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
+                label = { Text("Usuário") },
+                maxLines = 1,
+                modifier = Modifier
+                    .width(315.dp)
+                    .border(
+                        width = 1.dp,
+                        color = LightBlue80,
+                        shape = RoundedCornerShape(7.dp)
+                    ),
+                shape = RoundedCornerShape(7.dp),
+                )
+
+            TextField(
                 value = password,
                 onValueChange = { password = it },
                 label = { Text("Senha") },
                 visualTransformation = PasswordVisualTransformation(),
                 colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                maxLines = 1,
                 modifier = Modifier
-                    .padding(5.dp)
+                    .width(315.dp)
+                    .padding(0.dp, 12.dp, 0.dp, 0.dp)
+                    .border(
+                        width = 1.dp,
+                        color = LightBlue80,
+                        shape = RoundedCornerShape(7.dp)
+                    ),
+                shape = RoundedCornerShape(7.dp),
             )
 
             Box(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(22.dp)
             ){
                 Button(
                     onClick = {
@@ -143,14 +170,14 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                         com.teste.chatapp.compose.ui.theme.Orange80
                     ),
                     modifier = Modifier
-                        .size(350.dp, 30.dp)
+                        .size(315.dp, 35.dp)
                         .padding(0.dp, 0.dp, 0.dp, 0.dp)
                 ) {
                     Text(
                         text = "Login",
                         color = Color.White,
                         fontFamily = fontFamily,
-                        fontSize = 12.sp,
+                        fontSize = 14.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
@@ -158,30 +185,15 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
 
             Box(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .width(315.dp)
+                    .padding(0.dp, 0.dp, 0.dp, 0.dp)
             ){
-                Button(
-                    onClick = { /*TODO*/ },
-                    colors = ButtonDefaults.buttonColors(
-                        Color.White
-                    ),
-                    modifier = Modifier
-                        .size(350.dp, 30.dp)
-                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
-                ) {
-                    Text(
-                        text = "Continuar com Google",
-                        color = Color.Black,
-                        fontFamily = fontFamily,
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                Googlebutton()
             }
 
             Box(
                 modifier = Modifier
-                    .padding(0.dp, 20.dp, 0.dp, 0.dp)
+                    .padding(0.dp, 12.dp, 0.dp, 0.dp)
             ){
                 Text(
                     text = buildAnnotatedString {
@@ -196,7 +208,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                     },
                     color = com.teste.chatapp.compose.ui.theme.LightBlue80,
                     fontFamily = fontFamily,
-                    fontSize = 12.sp,
+                    fontSize = 14.sp,
                     fontWeight = FontWeight.Medium,
                     modifier = Modifier
                         .clickable {  }
