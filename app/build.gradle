@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace 'com.teste.chatapp'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId 'com.teste.chatapp'
         minSdk 23
-        targetSdk 34
+        targetSdk 32
         versionCode 1
         versionName "0.23.1708"
 
@@ -53,6 +53,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {
@@ -94,7 +95,7 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
     implementation "androidx.compose.ui:ui"
     implementation "androidx.compose.material3:material3"
-    implementation "androidx.navigation:navigation-compose:2.7.0"
+    implementation "androidx.navigation:navigation-compose:2.6.0"
     implementation "androidx.compose.runtime:runtime-livedata:1.5.0"
     implementation "androidx.compose.runtime:runtime-rxjava2:1.5.0"
     implementation "androidx.compose.ui:ui-tooling"

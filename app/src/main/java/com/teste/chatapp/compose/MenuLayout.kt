@@ -1,7 +1,5 @@
 package com.teste.chatapp.compose
 
-import android.content.Intent
-import android.widget.Button
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -12,24 +10,24 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Device
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat.startActivity
-import com.teste.chatapp.LogInActivity
 import com.teste.chatapp.R
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 
@@ -46,10 +44,11 @@ fun InitialLayoutScreen(onContinueClick: () -> Unit) {
         Font(R.font.outfit_semibold, FontWeight.SemiBold),
         Font(R.font.outfit_thin, FontWeight.Thin)
     )
-    Box(
+
+    Surface(
         modifier = Modifier
-            .fillMaxSize()
-            .background(com.teste.chatapp.compose.ui.theme.LightDark80)
+            .fillMaxSize(),
+            color = com.teste.chatapp.compose.ui.theme.LightDark80
     ) {
 
         Column(
@@ -98,8 +97,8 @@ fun InitialLayoutScreen(onContinueClick: () -> Unit) {
             // botão Login
             Button(
                 onClick = {
-                          onContinueClick()
-                    },
+                    onContinueClick()
+                },
                 colors = ButtonDefaults.buttonColors(
                     com.teste.chatapp.compose.ui.theme.Orange80
                 ),
@@ -140,12 +139,13 @@ fun InitialLayoutScreen(onContinueClick: () -> Unit) {
                     modifier = Modifier
                         .clickable {  }
                 )
+
             }
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview()
 @Composable
 fun InitialLayoutScreenPreview() {
     ChatAppTheme {
