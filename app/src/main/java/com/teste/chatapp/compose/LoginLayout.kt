@@ -1,6 +1,5 @@
 package com.teste.chatapp.compose
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -8,17 +7,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -30,12 +26,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
@@ -47,12 +39,9 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.android.material.color.utilities.MaterialDynamicColors.background
 import com.teste.chatapp.R
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
-import com.teste.chatapp.compose.ui.theme.LightBlue80
-import com.teste.chatapp.compose.ui.theme.Orange80
-import com.teste.chatapp.compose.ui.theme.White100
+import com.teste.chatapp.compose.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -76,7 +65,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(com.teste.chatapp.compose.ui.theme.LightDark80)
+            .background(LightDark80)
     ){
         Column(
             modifier = Modifier
@@ -94,7 +83,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                     text = buildAnnotatedString {
                         withStyle(
                             style = SpanStyle(
-                                color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                                color = LightBlue80,
                             )
                         ) {
                             append("W")
@@ -110,7 +99,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                 // 2° texto da box
                 Text(
                     text = "x",
-                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                    color = LightBlue80,
                     fontSize = 35.sp,
                     fontFamily = fontFamily,
                     fontWeight = FontWeight.Bold,
@@ -166,9 +155,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                     onClick = {
                               onLoginClick()
                     },
-                    colors = ButtonDefaults.buttonColors(
-                        com.teste.chatapp.compose.ui.theme.Orange80
-                    ),
+                    colors = ButtonDefaults.buttonColors(Orange80),
                     modifier = Modifier
                         .size(315.dp, 35.dp)
                         .padding(0.dp, 0.dp, 0.dp, 0.dp)
@@ -206,7 +193,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                         }
                         append("Criar conta")
                     },
-                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                    color = LightBlue80,
                     fontFamily = fontFamily,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium,

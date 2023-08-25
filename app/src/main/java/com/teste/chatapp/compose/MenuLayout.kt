@@ -145,8 +145,9 @@ fun InitialLayoutScreen(onContinueClick: () -> Unit) {
     }
 }
 
-@Preview()
+
 @Composable
+@Preview
 fun InitialLayoutScreenPreview() {
     ChatAppTheme {
         InitialLayoutScreen(onContinueClick = {})
