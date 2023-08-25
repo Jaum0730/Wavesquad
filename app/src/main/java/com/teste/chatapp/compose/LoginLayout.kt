@@ -36,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -205,7 +206,14 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
         }
     }
 }
-@Preview
+
+@Preview(showSystemUi = true,  device = Devices.PHONE)
+@Preview(showSystemUi = true,  device = Devices.NEXUS_7_2013)
+@Preview(showSystemUi = true,  device = Devices.NEXUS_5)
+@Preview(showSystemUi = true,  device = Devices.FOLDABLE)
+annotation class DevicesPreview
+
+@DevicesPreview
 @Composable
 fun LoginLayoutScreenPreview(){
     ChatAppTheme {
