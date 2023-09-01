@@ -15,7 +15,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -37,13 +36,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.teste.chatapp.R
-import com.teste.chatapp.compose.components.Googlebutton
-import com.teste.chatapp.compose.ui.theme.ChatAppTheme
+import com.teste.chatapp.compose.components.GoogleButton
 import com.teste.chatapp.compose.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -178,7 +175,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
                     .width(315.dp)
                     .padding(0.dp, 0.dp, 0.dp, 0.dp)
             ){
-                Googlebutton()
+                GoogleButton()
             }
 
             Box(

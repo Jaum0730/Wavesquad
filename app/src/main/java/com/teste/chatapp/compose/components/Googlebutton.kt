@@ -30,11 +30,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.teste.chatapp.R
-import com.teste.chatapp.compose.ui.theme.ChatAppTheme
+import com.teste.chatapp.compose.ui.theme.*
 
 @ExperimentalMaterial3Api
 @Composable
-fun Googlebutton(){
+fun GoogleButton(){
 
     val textWaiting:String = "Continuar com o Google"
     val textLoading:String = "Carregando..."
@@ -104,8 +104,8 @@ fun Googlebutton(){
 @ExperimentalMaterial3Api
 @Composable
 @Preview
-private fun GooglebuttonPreview(){
+private fun GoogleButtonPreview(){
     ChatAppTheme {
-        Googlebutton()
+        GoogleButton()
     }
 }

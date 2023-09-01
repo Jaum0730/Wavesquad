@@ -18,6 +18,7 @@ import com.teste.chatapp.compose.RegisterLayoutScreenPreview
 
 
  class RegisterActivity : AppCompatActivity() {
+
     //variavel de autenticacao
     private lateinit var dbAuth: FirebaseAuth
     //variavel  de banco de dados
@@ -102,7 +103,6 @@ import com.teste.chatapp.compose.RegisterLayoutScreenPreview
                     btnSignUp.visibility = View.VISIBLE
                     btnSignUp.isEnabled = true
                 }
-
         }
     }
 
