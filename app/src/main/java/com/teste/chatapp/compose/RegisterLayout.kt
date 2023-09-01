@@ -5,8 +5,10 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -46,6 +48,7 @@ import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 import com.teste.chatapp.compose.ui.theme.LightBlue80
 import com.teste.chatapp.compose.ui.theme.Orange80
 import com.teste.chatapp.compose.ui.theme.White100
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -196,7 +199,9 @@ fun RegisterLayoutScreen(onSignUpClick:() -> Unit){
 
            Box(
                modifier = Modifier
+                   .fillMaxWidth()
                    .padding(8.dp)
+
            ){
                Button(
                    onClick = { onSignUpClick() },
@@ -205,8 +210,12 @@ fun RegisterLayoutScreen(onSignUpClick:() -> Unit){
                    ),
 
                    modifier = Modifier
+                       .fillMaxWidth()
                        .size(350.dp, 30.dp)
                        .padding(0.dp, 0.dp, 0.dp, 0.dp)
+                       .align(
+                           alignment = Alignment.Center
+                       )
                ) {
                    Text(
                        text = "Cadastrar",

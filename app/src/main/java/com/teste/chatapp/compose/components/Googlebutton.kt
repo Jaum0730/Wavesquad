@@ -24,6 +24,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.teste.chatapp.R
@@ -36,7 +39,20 @@ fun Googlebutton(){
     val textWaiting:String = "Continuar com o Google"
     val textLoading:String = "Carregando..."
     var clicked by remember { mutableStateOf(false) }
+    //colocar no arquivo type
+    val fontFamily = FontFamily(
+        Font(R.font.outfit_black, FontWeight.Black),
+        Font(R.font.outfit_bold, FontWeight.Bold),
+        Font(R.font.outfit_extrabold, FontWeight.ExtraBold),
+        Font(R.font.outfit_extralight, FontWeight.ExtraLight),
+        Font(R.font.outfit_light, FontWeight.Light),
+        Font(R.font.outfit_medium, FontWeight.Medium),
+        Font(R.font.outfit_regular, FontWeight.Normal),
+        Font(R.font.outfit_semibold, FontWeight.SemiBold),
+        Font(R.font.outfit_thin, FontWeight.Thin)
 
+    )
+    //==================================
     Surface(
         onClick = {clicked = !clicked},
         shape = RoundedCornerShape(7.dp),
