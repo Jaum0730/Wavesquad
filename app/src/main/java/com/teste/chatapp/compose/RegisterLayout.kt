@@ -1,6 +1,7 @@
 package com.teste.chatapp.compose
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -15,6 +17,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -38,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.teste.chatapp.R
+import com.teste.chatapp.compose.components.Googlebutton
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 import com.teste.chatapp.compose.ui.theme.LightBlue80
 import com.teste.chatapp.compose.ui.theme.Orange80
@@ -110,34 +114,52 @@ fun RegisterLayoutScreen(onSignUpClick:() -> Unit){
                )
            }
 
-           OutlinedTextField(
+           TextField(
                value = user,
-               onValueChange = { email = it },
+               onValueChange = { user = it},
+               colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                label = { Text("Usuário") },
-               colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
+               maxLines = 1,
+               modifier = Modifier
+                   .width(315.dp)
+                   .border(
+                       width = 1.dp,
+                       color = LightBlue80,
+                       shape = RoundedCornerShape(7.dp)
+                   ),
                shape = RoundedCornerShape(7.dp),
-               modifier = Modifier
-                   .padding(5.dp)
            )
 
-           OutlinedTextField(
-               value = email,
-               onValueChange = { email = it },
-               label = { Text("Email") },
+           TextField(
+               value = user,
+               onValueChange = { user = it},
                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
+               label = { Text("Usuário") },
+               maxLines = 1,
                modifier = Modifier
-                   .padding(5.dp)
+                   .width(315.dp)
+                   .border(
+                       width = 1.dp,
+                       color = LightBlue80,
+                       shape = RoundedCornerShape(7.dp)
+                   ),
+               shape = RoundedCornerShape(7.dp),
            )
 
-           OutlinedTextField(
-               value = password,
-               onValueChange = { password = it },
-               label = { Text("Senha") },
-               visualTransformation = PasswordVisualTransformation(),
+           TextField(
+               value = user,
+               onValueChange = { user = it},
                colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
-               keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+               label = { Text("Usuário") },
+               maxLines = 1,
                modifier = Modifier
-                   .padding(5.dp)
+                   .width(315.dp)
+                   .border(
+                       width = 1.dp,
+                       color = LightBlue80,
+                       shape = RoundedCornerShape(7.dp)
+                   ),
+               shape = RoundedCornerShape(7.dp),
            )
 
            Box(

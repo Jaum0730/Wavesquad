@@ -15,6 +15,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -41,13 +42,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.teste.chatapp.R
+import com.teste.chatapp.compose.components.Googlebutton
 import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 import com.teste.chatapp.compose.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginLayoutScreen(onLoginClick:() -> Unit) {
-    var usuario by remember { mutableStateOf("") }
+    var user by remember { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
 
     val fontFamily = FontFamily(
@@ -66,7 +68,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(LightDark80)
+            .background(LightDark80),
     ){
         Column(
             modifier = Modifier
@@ -114,8 +116,8 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
 
 
             TextField(
-                value = usuario,
-                onValueChange = { usuario = it},
+                value = user,
+                onValueChange = { user = it},
                 colors = TextFieldDefaults.outlinedTextFieldColors(containerColor = White100),
                 label = { Text("Usuário") },
                 maxLines = 1,
@@ -207,13 +209,7 @@ fun LoginLayoutScreen(onLoginClick:() -> Unit) {
     }
 }
 
-@Preview(showSystemUi = true,  device = Devices.PHONE)
-@Preview(showSystemUi = true,  device = Devices.NEXUS_7_2013)
-@Preview(showSystemUi = true,  device = Devices.NEXUS_5)
-@Preview(showSystemUi = true,  device = Devices.FOLDABLE)
-annotation class DevicesPreview
-
-@DevicesPreview
+@Preview(showSystemUi = true)
 @Composable
 fun LoginLayoutScreenPreview(){
     ChatAppTheme {

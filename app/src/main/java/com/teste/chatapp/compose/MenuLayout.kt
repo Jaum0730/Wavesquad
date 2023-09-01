@@ -33,6 +33,7 @@ import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 
 @Composable
 fun InitialLayoutScreen(onContinueClick: () -> Unit) {
+    val windowInfo = rememberWindowInfo()
     val fontFamily = FontFamily(
         Font(R.font.outfit_black, FontWeight.Black),
         Font(R.font.outfit_bold, FontWeight.Bold),
@@ -50,50 +51,84 @@ fun InitialLayoutScreen(onContinueClick: () -> Unit) {
             .fillMaxSize(),
             color = com.teste.chatapp.compose.ui.theme.LightDark80
     ) {
-
         Column(
             modifier = Modifier
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
+            if(windowInfo.screenWidthInfo is WindowInfo.WindowType.Compact){
+                // box para os diferentes textos ficarem alinhados
+                Box(
+                    contentAlignment = Alignment.BottomStart,
+                ) {
+                    // 1° texto da box
+                    Text(
+                        text = buildAnnotatedString {
+                            withStyle(
+                                style = SpanStyle(
+                                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                                )
+                            ) {
+                                append("W")
+                            }
+                            append("AVE")
+                        },
+                        color = Color.White,
+                        fontSize = 60.sp,
+                        fontFamily = fontFamily,
+                        fontWeight = FontWeight.Bold
+                    )
 
-            // box para os diferentes textos ficarem alinhados
-            Box(
-                contentAlignment = Alignment.BottomStart,
-            ) {
-                // 1° texto da box
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(
-                            style = SpanStyle(
-                                color = com.teste.chatapp.compose.ui.theme.LightBlue80,
-                            )
-                        ) {
-                            append("W")
-                        }
-                        append("AVE")
-                    },
-                    color = Color.White,
-                    fontSize = 60.sp,
-                    fontFamily = fontFamily,
-                    fontWeight = FontWeight.Bold
-                )
+                    // 2° texto da box
+                    Text(
+                        text = "x",
+                        color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                        fontSize = 35.sp,
+                        fontFamily = fontFamily,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .padding(start = 222.dp, bottom = 12.dp)
+                            .align(Alignment.BottomEnd)
+                            .graphicsLayer(rotationZ = -23f)
+                    )
+                }
+            } else {
+                Box(
+                    contentAlignment = Alignment.BottomStart,
+                ) {
+                    // 1° texto da box
+                    Text(
+                        text = buildAnnotatedString {
+                            withStyle(
+                                style = SpanStyle(
+                                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                                )
+                            ) {
+                                append("W")
+                            }
+                            append("AVE")
+                        },
+                        color = Color.White,
+                        fontSize = 60.sp,
+                        fontFamily = fontFamily,
+                        fontWeight = FontWeight.Bold
+                    )
 
-                // 2° texto da box
-                Text(
-                    text = "x",
-                    color = com.teste.chatapp.compose.ui.theme.LightBlue80,
-                    fontSize = 35.sp,
-                    fontFamily = fontFamily,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier
-                        .padding(start = 175.dp, bottom = 10.dp)
-                        .align(Alignment.BottomEnd)
-                        .graphicsLayer(rotationZ = -23f)
-                )
+                    // 2° texto da box
+                    Text(
+                        text = "x",
+                        color = com.teste.chatapp.compose.ui.theme.LightBlue80,
+                        fontSize = 35.sp,
+                        fontFamily = fontFamily,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .padding(start = 175.dp, bottom = 10.dp)
+                            .align(Alignment.BottomEnd)
+                            .graphicsLayer(rotationZ = -23f)
+                    )
+                }
             }
-
             // botão Login
             Button(
                 onClick = {
@@ -147,7 +182,7 @@ fun InitialLayoutScreen(onContinueClick: () -> Unit) {
 
 
 @Composable
-@Preview
+@Preview(showSystemUi = true)
 fun InitialLayoutScreenPreview() {
     ChatAppTheme {
         InitialLayoutScreen(onContinueClick = {})

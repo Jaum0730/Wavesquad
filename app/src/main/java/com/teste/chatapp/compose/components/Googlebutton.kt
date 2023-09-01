@@ -1,4 +1,4 @@
-package com.teste.chatapp.compose
+package com.teste.chatapp.compose.components
 
 
 import androidx.compose.animation.animateContentSize
@@ -8,7 +8,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -34,8 +33,8 @@ import com.teste.chatapp.compose.ui.theme.ChatAppTheme
 @Composable
 fun Googlebutton(){
 
-    val textwaiting:String = "Continuar com o Google"
-    val textloading:String = "Carregando..."
+    val textWaiting:String = "Continuar com o Google"
+    val textLoading:String = "Carregando..."
     var clicked by remember { mutableStateOf(false) }
 
     Surface(
@@ -60,22 +59,17 @@ fun Googlebutton(){
                         durationMillis = 300,
                         easing = LinearOutSlowInEasing
 
-
                     )
-
-                )
-            ,
-
+                ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
-
         )
 
         {
             Icon(painter = painterResource(R.drawable.ic_google_logo), contentDescription = "Google icon",
                 tint = Color.Unspecified)
             Spacer(modifier = Modifier.width(10.dp))
-            Text(text = if(clicked) textloading else textwaiting)
+            Text(text = if(clicked) textLoading else textWaiting)
             if(clicked){
                 Spacer(modifier = Modifier.width(10.dp))
                 CircularProgressIndicator(
@@ -84,21 +78,10 @@ fun Googlebutton(){
                         .height(10.dp),
                     strokeWidth = 2.dp,
                     color = MaterialTheme.colorScheme.primary
-
-
-
-            )
+                )
+            }
         }
-
-
-
-
-        }
-
     }
-
-
-
 }
 
 
