@@ -296,13 +296,13 @@ fun RegisterLayoutScreenPreview(){
     }
 }
 
-fun SignUpCreate(context: , email: String, senha: String) {
+fun SignUpCreate(email: String, password: String) {
     
-    if (senha.length < 7) {
-        Toast.makeText(context, "senha precisa ter no minimo 8 caracteres", Toast.LENGTH_LONG)
+    if (password.length < 7) {
+        Toast.makeText(LocalContext.Current,"senha precisa ter no minimo 8 caracteres", Toast.LENGTH_LONG)
             .show()
     }else {
-        dbAuth.createUserWithEmailAndPassword(email, senha)
+        dbAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(context) { task ->
                 if (task.isSuccessful) {
 
